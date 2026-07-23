@@ -38,11 +38,11 @@ Make sure you have the following installed on your machine:
 
 ### 📥 Installation & Setup
 
-1. **Clone the repository:**
+1. **Clone this repository:**
 
    ```bash
-   git clone https://github.com/YOUR_USERNAME/YOUR_REPOSITORY_NAME.git
-   cd YOUR_REPOSITORY_NAME
+   git clone https://github.com/USERNAME/REPOSITORY_NAME.git
+   cd REPOSITORY_NAME
    ```
 
 2. **Set up Environment Variables:**
