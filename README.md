@@ -67,6 +67,26 @@ Make sure you have the following installed on your machine:
 
 ---
 
+## 📄 Sample Test PDF & Example Questions
+
+A sample policy handbook (`sample_document.pdf`) is provided in the root directory so you can test the RAG ingestion, vector embedding, and response generation immediately.
+
+### 1. Upload the Sample PDF
+
+1. Open the web interface at `http://localhost:3000`.
+2. Upload `sample_document.pdf` from the project root folder.
+
+### 2. Verify Retrieval & Generation
+
+Once the document is processed and indexed, ask the AI assistant these questions to verify that the RAG pipeline retrieves the correct chunks:
+
+- 🕒 **"What are the core working hours?"**
+- 🏠 **"How many days can employees work remotely?"**
+- 🌴 **"What is the policy on rolling over unused PTO?"**
+- 🔒 **"What are the software installation and encryption requirements?"**
+
+---
+
 ## 🛠️ Project Architecture
 
 ```text
