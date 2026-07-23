@@ -1,6 +1,8 @@
 from fastapi import FastAPI
+from fastapi.middleware.cors import CORSMiddleware
 from app.database import db
 from app.api.documents import router as documents_router
+from app.api.chat import router as chat_router
 
 
 app = FastAPI(
@@ -8,7 +10,26 @@ app = FastAPI(
     version="1.0.0"
 )
 
+# 1. DEFINE ORIGINS FIRST
+origins = [
+    "http://localhost:3000",
+    "http://localhost:5173",
+    "http://127.0.0.1:5173",
+    "http://127.0.0.1:3000",
+    "http://localhost"
+]
+
+# 2. PASS IT TO THE MIDDLEWARE AFTER IT IS DEFINED
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=origins,
+    allow_credentials=True,
+    allow_methods=["*"],
+    allow_headers=["*"],
+)
+
 app.include_router(documents_router)
+app.include_router(chat_router)
 
 
 @app.get("/")

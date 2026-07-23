@@ -1,0 +1,39 @@
+services:
+  backend:
+    build:
+      context: ./backend
+      dockerfile: Dockerfile
+    container_name: fastapi_backend
+    restart: always
+    expose:
+      - "8000"
+    volumes:
+      - chromadb_data:/app/chroma_db
+    env_file:
+      - ./backend/.env
+    depends_on: # <--- CRITICAL FIX 1
+      - mongodb
+
+  frontend:
+    build:
+      context: ./frontend
+      dockerfile: Dockerfile
+    container_name: react_frontend
+    restart: always
+    ports:
+      - "3000:80" # Exposes NGINX to your computer on http://localhost
+    depends_on:
+      - backend
+
+  mongodb:
+    image: mongo:latest
+    container_name: mongodb
+    restart: always
+    ports:
+      - "27017:27017"
+    volumes:
+      - mongodb_data:/data/db
+
+volumes:
+  chromadb_data:
+  mongodb_data:

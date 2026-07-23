@@ -1,0 +1,23 @@
+# Python virtual environments
+.venv/
+venv/
+ENV/
+
+# Byte-code / build artifacts
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.pytest_cache/
+.mypy_cache/
+
+# Local databases & persistent storage (Docker volumes manage this)
+chroma_db/
+*.sqlite3
+*.db
+
+# Environment & git files
+.env
+.git/
+.gitignore
+.DS_Store
